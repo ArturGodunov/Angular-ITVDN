@@ -40,7 +40,7 @@
     }
 
     function _read() {
-        var temp = window.localStorage["tasks"]
+        var temp = window.localStorage["tasks"];
 
         if (!temp) _data = [];
         else _data = JSON.parse(temp);
