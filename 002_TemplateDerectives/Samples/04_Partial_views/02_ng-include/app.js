@@ -14,7 +14,7 @@ app.controller("SampleAppCtrl", function ($scope) {
 
     $scope.showList = function () {
         $scope.url = $scope.listView;
-    }
+    };
 
     $scope.showTable = function () {
         $scope.url = $scope.tableView;
