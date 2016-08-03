@@ -18,7 +18,7 @@
         angular.module("exampleApp", [])
         .controller("defaultCtrl", function ($scope) {
             $scope.requireValue = true;
-            $scope.matchPattern = new RegExp("[a-z]");
+            $scope.matchPattern = new RegExp("^\d+$");
         });
     </script>
 
