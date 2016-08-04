@@ -12,7 +12,7 @@
             $scope.$on("messageEvent", function (event, args) {
                 //event.stopPropagation(); // останавливаем распространение события
                 $scope.info = args.message;
-            })
+            });
 
             $scope.send = function () {
                 // $emit - отправка события от текущего scope к родительским scope
