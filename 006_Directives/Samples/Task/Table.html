@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+
+<head>
+    <title>Table</title>
+
+    <script src="../Libraries/angular.js"></script>
+    <link href="../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../Libraries/bootstrap.css" rel="stylesheet" />
+
+    <script>
+        angular.module("exampleApp", [])
+            .directive("table", function () {
+                return function (scope, element, attributes) {
+                    var data = scope[attributes["table"]];
+
+                    if (angular.isArray(data)) {
+                        var table = angular.element('<table>');
+
+                        for (var i = 0; i < data.length; i++) {
+                            var tr = angular.element('<tr>');
+
+                            for (var key in data[i]) {
+                                tr.append(angular.element('<td>').text(data[i][key]));
+                            }
+
+                            table.append(tr);
+                        }
+
+                        element.append(table);
+                    }
+                }
+            })
+        .controller("defaultCtrl", function ($scope) {
+            $scope.arr = [
+                { name: "Table", price: 44.10 },
+                { name: "Chair", price: 21.20 },
+                { name: "Pillow", price: 12.20 },
+                { name: "Picture", price: 112.70 },
+                { name: "Lamp", price: 28.31 }
+            ];
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Table</h3>
+        </div>
+        <div class="panel-body">
+            <div table="arr"></div>
+        </div>
+    </div>
+</body>
+</html>
+
