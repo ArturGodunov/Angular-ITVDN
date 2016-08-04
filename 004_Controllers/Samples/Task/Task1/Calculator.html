@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="sampleApp">
+<head>
+    <title>Calculator</title>
+    <script src="../../Libraries/angular.js"></script>
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+    <script>
+        var app = angular.module("sampleApp", []);
+
+        app.controller('MainCtrl', function ($scope) {
+            $scope.firstField = {data: ''};
+            $scope.secondField = {data: ''};
+            $scope.result = {data: ''};
+
+            $scope.plus = function () {
+                $scope.result.data = parseInt($scope.firstField.data) + parseInt($scope.secondField.data);
+            };
+        });
+
+        app.controller('MinusCtrl', function ($scope) {
+            $scope.minus = function () {
+                $scope.result.data = $scope.firstField.data - $scope.secondField.data;
+            };
+        });
+
+        app.controller('MultiplyCtrl', function ($scope) {
+            $scope.multiply = function () {
+                $scope.result.data = $scope.firstField.data * $scope.secondField.data;
+            };
+        });
+
+        app.controller('DeleteCtrl', function ($scope) {
+            $scope.delete = function () {
+                $scope.result.data = $scope.firstField.data / $scope.secondField.data;
+            };
+        });
+    </script>
+</head>
+<body ng-controller="MainCtrl">
+    <div ng-controller="MinusCtrl">
+        <div ng-controller="MultiplyCtrl">
+            <div ng-controller="DeleteCtrl">
+                <div class="container">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="firstField.data">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="secondField.data">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-default" ng-click="plus()">+</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-default" ng-click="minus()">-</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-default" ng-click="multiply()">*</div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn btn-default" ng-click="delete()">/</div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="result.data">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
