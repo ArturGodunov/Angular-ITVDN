@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Task1</title>
+
+    <link href="../../Libraries/bootstrap.css" rel="stylesheet" />
+    <link href="../../Libraries/bootstrap-theme.css" rel="stylesheet" />
+    <script src="../../Libraries/angular.js"></script>
+
+    <script>
+        angular.module("exampleApp", [])
+            .directive("paragraphList", function () {
+                return {
+                    restrict: "A",
+                    template: "<p ng-repeat='item in property track by $index'>{{item}}</p>",
+                    replace: true,
+                    scope: {
+                        property: "=paragraphList"
+                    }
+                }
+            })
+        .controller("defaultCtrl", function ($scope) {
+            $scope.items = [
+                'qweqwe qweqwe',
+                'asdasd asdasd',
+                'zxczxc zxczxc'
+            ];
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>Paragraph</h3>
+        </div>
+        <div class="panel-body">
+            <div paragraph-list="items"></div>
+        </div>
+    </div>
+</body>
+</html>
