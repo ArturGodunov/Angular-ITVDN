@@ -7,13 +7,13 @@
     // получение всех данных из модели
     $scope.refresh = function () {
         $scope.items = [{ id: 0, name: "Item 1", price: 10 }, { id: 1, name: "Item 2", price: 12 }, { id: 2, name: "Item 3", price: 15 }];
-    }
+    };
 
     // создание нового элемента
     $scope.create = function (item) {
         $scope.items.push(item);
         $scope.currentView = "table"
-    }
+    };
 
     // обновление элемента
     $scope.update = function (item) {
@@ -24,18 +24,18 @@
             }
         }
         $scope.currentView = "table"
-    }
+    };
 
     // удаление элемента из модели
     $scope.delete = function (item) {
         $scope.items.splice($scope.items.indexOf(item), 1);
-    }
+    };
 
     // редеактирование существующего или создание нового элемента
     $scope.editOrCreate = function (item) {
         $scope.currentItem = item ? angular.copy(item) : {};
         $scope.currentView = "edit";
-    }
+    };
 
     // сохранение изменений
     $scope.saveEdit = function (item) {
@@ -46,13 +46,13 @@
         } else {
             $scope.create(item);
         }
-    }
+    };
 
     // отмена изменений и возврат в представление table
     $scope.cancelEdit = function () {
         $scope.currentItem = {};
         $scope.currentView = "table";
-    }
+    };
 
     $scope.refresh();
 });

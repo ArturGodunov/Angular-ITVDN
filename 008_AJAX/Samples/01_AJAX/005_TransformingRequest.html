@@ -15,7 +15,7 @@
                 $http.get("../DataFolder/data.json").success(function (responseData) {
                     $scope.items = responseData;
                 })
-            }
+            };
 
             $scope.sendXmlData = function () {
                 var config = {
@@ -38,7 +38,7 @@
                         rootElement.children().wrap("<items>");
                         return rootElement.html();
                     }
-                }
+                };
 
                 // На данный запрос приложение не отреагирует, так по адресу 02_transforming_request.html нет ресурса способного обработать POST запрос.
                 // Для post метода указан объект config с свойством transformRequest, который преобразовывает тело запроса из JavaScript массива в XML.

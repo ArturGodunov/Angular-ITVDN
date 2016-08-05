@@ -20,7 +20,7 @@ angular.module("exampleApp", ["ngResource"])
         // которые используются для взаимодействия с данными на сервере $delete, $get, $remove, $save 
         $scope.items = $scope.itemsResource.query();
 
-    }
+    };
 
     // создание нового элемента
     $scope.create = function (item) {
@@ -28,13 +28,13 @@ angular.module("exampleApp", ["ngResource"])
             $scope.items.push(newItem);
             $scope.currentView = "table";
         });
-    }
+    };
 
     // обновление элемента
     $scope.update = function (item) {
         item.$save();
         $scope.currentView = "table";
-    }
+    };
 
     // удаление элемента из модели
     $scope.delete = function (item) {
@@ -42,13 +42,13 @@ angular.module("exampleApp", ["ngResource"])
             $scope.items.splice($scope.items.indexOf(item), 1);
         });
         $scope.currentView = "table";
-    }
+    };
 
     // редеактирование существующего или создание нового элемента
     $scope.editOrCreate = function (item) {
         $scope.currentItem = item ? item : {};
         $scope.currentView = "edit";
-    }
+    };
 
     // сохранение изменений
     $scope.saveEdit = function (item) {
@@ -57,7 +57,7 @@ angular.module("exampleApp", ["ngResource"])
         } else {
             $scope.create(item);
         }
-    }
+    };
 
     // отмена изменений и возврат в представление table
     $scope.cancelEdit = function () {
@@ -66,7 +66,7 @@ angular.module("exampleApp", ["ngResource"])
         }
         $scope.currentItem = {};
         $scope.currentView = "table";
-    }
+    };
 
     $scope.refresh();
 });

@@ -15,7 +15,7 @@ angular.module("exampleApp", [])
         $http.get(baseUrl).success(function (data) {
             $scope.items = data;
         });
-    }
+    };
 
     // создание нового элемента
     $scope.create = function (item) {
@@ -25,7 +25,7 @@ angular.module("exampleApp", [])
             $scope.items.push(item);
             $scope.currentView = "table";
         });
-    }
+    };
 
     // обновление элемента
     $scope.update = function (item) {
@@ -44,7 +44,7 @@ angular.module("exampleApp", [])
             }
             $scope.currentView = "table";
         });
-    }
+    };
 
     // удаление элемента из модели
     $scope.delete = function (item) {
@@ -56,13 +56,13 @@ angular.module("exampleApp", [])
         }).success(function () {
             $scope.items.splice($scope.items.indexOf(item), 1);
         });
-    }
+    };
 
     // редеактирование существующего или создание нового элемента
     $scope.editOrCreate = function (item) {
         $scope.currentItem = item ? angular.copy(item) : {};
         $scope.currentView = "edit";
-    }
+    };
 
     // сохранение изменений
     $scope.saveEdit = function (item) {
@@ -73,13 +73,13 @@ angular.module("exampleApp", [])
         } else {
             $scope.create(item);
         }
-    }
+    };
 
     // отмена изменений и возврат в представление table
     $scope.cancelEdit = function () {
         $scope.currentItem = {};
         $scope.currentView = "table";
-    }
+    };
 
     $scope.refresh();
 });

@@ -32,7 +32,7 @@ angular.module("exampleApp", ["ngResource", "ngRoute"])
     $scope.refresh = function () {
         $scope.items = $scope.itemsResource.query();
 
-    }
+    };
 
     // создание нового элемента
     $scope.create = function (item) {
@@ -40,13 +40,13 @@ angular.module("exampleApp", ["ngResource", "ngRoute"])
             $scope.items.push(newItem);
             $location.path("/table");
         });
-    }
+    };
 
     // обновление элемента
     $scope.update = function (item) {
         item.$save();
         $location.path("/table");
-    }
+    };
 
     // удаление элемента из модели
     $scope.delete = function (item) {
@@ -54,13 +54,13 @@ angular.module("exampleApp", ["ngResource", "ngRoute"])
             $scope.items.splice($scope.items.indexOf(item), 1);
         });
         $location.path("/table");
-    }
+    };
 
     // редеактирование существующего или создание нового элемента
     $scope.editOrCreate = function (item) {
         $scope.currentItem = item ? item : {};
         $location.path("/edit");
-    }
+    };
 
     // сохранение изменений
     $scope.saveEdit = function (item) {
@@ -69,7 +69,7 @@ angular.module("exampleApp", ["ngResource", "ngRoute"])
         } else {
             $scope.create(item);
         }
-    }
+    };
 
     // отмена изменений и возврат в представление table
     $scope.cancelEdit = function () {
@@ -78,7 +78,7 @@ angular.module("exampleApp", ["ngResource", "ngRoute"])
         }
         $scope.currentItem = {};
         $location.path("/table");
-    }
+    };
 
     $scope.refresh();
 });
