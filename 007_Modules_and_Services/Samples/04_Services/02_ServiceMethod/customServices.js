@@ -5,13 +5,13 @@ var baseLogger = function () {
     this.log = function (msg) {
         console.log("Type " + this.msgType + " LOG #" + this.messageCount++ + ", message = " + msg);
     }
-}
+};
 
-var debugLogger = function () { }
+var debugLogger = function () { };
 debugLogger.prototype = new baseLogger();
 debugLogger.prototype.msgType = "Debug";
 
-var errorLogger = function () { }
+var errorLogger = function () { };
 errorLogger.prototype = new baseLogger();
 errorLogger.prototype.msgType = "Error";
 
