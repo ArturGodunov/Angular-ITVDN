@@ -1,0 +1,19 @@
+<h3>ToDo List</h3>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="item in items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.date | date : 'short'}}</td>
+        <td>{{item.completed}}</td>
+    </tr>
+</table>
+<button type="button" class="btn btn-default" ng-click="openAdd()">Add</button>
